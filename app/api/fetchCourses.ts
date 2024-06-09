@@ -1,11 +1,10 @@
-import { createClient } from "@/utils/supabase/server";
 import { Database } from "@/types/supabase";
+import { supabase } from "@/utils/supabase/client";
 
 type Course = Database["public"]["Tables"]["Courses"]["Row"];
 
 export const fetchCourses = async (): Promise<Course[] | null> => {
-  const supabase = createClient();
-  const { data: courses, error } = await supabase.from("Courses").select("*");
+  let { data: courses, error } = await supabase.from("Courses").select("*");
 
   if (error) {
     console.error("Error fetching courses:", error);
