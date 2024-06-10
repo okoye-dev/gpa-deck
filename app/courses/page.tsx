@@ -31,7 +31,7 @@ export default function Courses() {
 
   if (loading) {
     return (
-      <div className="h-4 w-4 mt-10 animate-bounce rounded-full bg-green-500 text-sm" />
+      <div className="mt-10 h-4 w-4 animate-bounce rounded-full bg-green-500 text-sm" />
     );
   }
 
@@ -44,7 +44,7 @@ export default function Courses() {
       {coursesList.map((course) => (
         <div
           key={course.id}
-          className="flex w-36 items-center justify-center rounded-lg bg-btn-background py-2 text-lg"
+          className="flex w-36 items-center justify-center rounded-lg bg-slate-900 py-2 text-lg font-normal text-white"
         >
           {course.course_code}
         </div>

@@ -1,9 +1,16 @@
-import { GeistSans } from "geist/font/sans";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
+
+export const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
@@ -17,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
-      <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
+    <html lang="en" className={poppins.className}>
+      <body className="bg-slate-300 text-foreground">
+        <main className="flex min-h-screen flex-col items-center">
           {children}
         </main>
       </body>
